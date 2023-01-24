@@ -1,0 +1,17 @@
+.header{
+    color: rgb(235, 122, 17);
+    display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  background: rgb(0, 0, 0);
+}
