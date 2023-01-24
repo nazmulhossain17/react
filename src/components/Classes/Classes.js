@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import './Classes.css';
 
 const Calculate = ({infos}) => {
@@ -12,10 +13,7 @@ const Calculate = ({infos}) => {
             <small>{des}</small>
             <h4>Time required: {time}h</h4>
             </div>
-            {/* <button onClick={()=> handleAddToCart(product)} className='btn-cart'>
-                <p className='btn-text'>Add to Cart</p>
-                <FontAwesomeIcon icon={faShoppingCart}/>
-            {/* </button> */} 
+            <Button className='btn-success'>Add To List</Button>
         </div>
         </div>
     );
