@@ -11,17 +11,26 @@ const Data = () => {
         .then(res => res.json())
         .then(data => setInfo(data))
     },[])
+
+    const handleClick = (info) =>{
+      console.log(info);
+      const newCart = [...cart, info];
+      setCart(newCart);
+  }
     return (
         <div className='shop-container'>
         <div className='products-container'>
           {
             info.map(infos => <Classes 
             key={infos.id}
-            infos={infos}/>)
+            infos={infos}
+            handleClick={handleClick}
+            />)
           }
         </div>
         <div className='cart-container'>
             <Cart cart={cart}/>
+            
         </div>
     </div>
     );
