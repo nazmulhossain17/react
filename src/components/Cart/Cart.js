@@ -5,8 +5,10 @@ import './Cart.css';
 const Cart = ({cart}) => {
 
     let total = 0;
+    let quantity = 0;
     for(const info of cart){
-        total = total + info.time;
+        quantity = quantity + info.quantity; 
+        total = total + info.time * info.quantity;
     }
     
     return (
@@ -14,7 +16,7 @@ const Cart = ({cart}) => {
             <h5>Nazmul Hossain</h5>
             <small>Dhaka Bangladesh</small>
             <br></br>
-            <strong>Selected Class: {cart.length}</strong>
+            <strong>Selected Class: {quantity}</strong>
             <br></br>
             <b>Class Details</b>
             <h5>Class Time: {total}h</h5>

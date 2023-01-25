@@ -11,10 +11,7 @@ const Data = () => {
       console.log('products load before fetch')
         fetch('data.json')
         .then(res => res.json())
-        .then(data => {
-          setInfo(data)
-          // console.log('product loaded')
-          })
+        .then(data => setInfo(data))
       },[])
 
     useEffect(()=>{
@@ -30,14 +27,23 @@ const Data = () => {
         }
       }
       setCart(savedCart)
-      // console.log('local storage finished')
     },[info])
 
-    const handleClick = (info) =>{
+    const handleClick = (selectedInfo) =>{
       // console.log(info);
-      const newCart = [...cart, info];
+      let newCart = [];
+      const exists = cart.find(info => info.id === selectedInfo.id);
+      if(!exists){
+        selectedInfo.quantity = 1;
+        newCart = [...cart, selectedInfo];
+      }
+      else{
+        const rest = cart.filter(info => info.id !== selectedInfo.id);
+        exists.quantity = exists.quantity + 1;
+        newCart = [...rest, exists]
+      }
       setCart(newCart);
-      addToDb(info.id);
+      addToDb(selectedInfo.id);
   }
     return (
         <div className='shop-container'>
